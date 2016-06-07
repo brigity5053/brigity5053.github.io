@@ -1,5 +1,5 @@
 img{
-  width: 500px; margin-right:15px;
+  width: 500px; margin-right:60px; margin-left:60px;
 }
 h1,h2,h3{
   color:blue;
@@ -8,6 +8,6 @@ p{
   font-size:25px;
 }
 li{
-  font-size:25px;
+  font-size:25px; padding-left:40px; padding-right:40px;
 }
 
