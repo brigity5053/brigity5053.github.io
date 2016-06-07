@@ -1,5 +1,5 @@
 img{
-  width: 500px; margin-right:60px; margin-left:60px; display:inline
+  width: 500px; margin-right:60px; margin-left:60px; display: inline-block
 }
 h1,h2,h3{
   color:blue;
