@@ -1,5 +1,5 @@
 $(document).ready(function(){
   $("p").click(function(){
-  $("p").css("color","red");
+  $("#circle").css("color","red");
   })
 })
