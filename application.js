@@ -1,70 +1,28 @@
 import java.util.Random;
-import java.util.Scanner;
+ import java.util.Scanner;
 
-class GuessMyNumber {
+ public class NumberGuess {
 
-    private final int MIN;
-    private final int MAX;
+    public static void main(String[] args) {
 
-    private int guessnumber = 0;
-    private int guessestaken = 0;
+        Scanner scan = new Scanner(System.in);
+        Random rand = new Random();
 
-    public GuessMyNumber(int min, int max) {
-        MIN = min;
-        MAX = max;
+        System.out.println("Im thinking of a number from 1 to 10");
+        int number = scan.nextInt(10);
+         //Generates a random number from 1 to 10
+        int number2 = rand.nextInt(10)+1;
+        System.out.println("you enter the number" + " " + number);
 
-        guessnumber = generateNewNumber();
 
-        int guess;
+        for (int counter = -1; counter < 3; counter ++ ){
+             if(number!= number2)
+               System.out.println("and your random number is:" + " " + number2 + " " + "please try again"); 
+             else 
+                 System.out.println("your guess number is equal to the random number Good job guessing");
 
-        do {
-            guessestaken++;
-
-            guess = getUserInput();
-
-        } while (!checkUserGuess(guess));
-    }
-
-    private int getUserInput() {
-        Scanner input = new Scanner(System.in);
-        String userinput;
-        do {
-            System.out.print("Guess a number between 1 and 100: ");
-            userinput = input.nextLine();
-        } while (!isInteger(userinput));
-        return Integer.parseInt(userinput);
-    }
-
-    private int generateNewNumber() {
-        Random random = new Random();
-        return random.nextInt(MAX - MIN + 1) + MIN;
-    }
-
-    private boolean checkUserGuess(int guess) {
-        if (guess == guessnumber) {
-            System.out.println("Well done! " + guessnumber + " was my number! You guessed it in " + guessestaken + " guesses.");
-            return true;
-        } else {
-            if (guess > guessnumber) {
-                System.out.println("My number is less than " + guess + ".");
-            } else {
-                System.out.println("My number is greater than " + guess + ".");
-            }
-        }
-        return false;
+             break;
+         }
 
     }
-
-    public static boolean isInteger(String s) {
-        try {
-            Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
-    }
-
-    public static void main(String args[]) {
-        new GuessMyNumber(0, 100);
-    }
-}
+  } 
