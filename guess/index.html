@@ -1,19 +1,37 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<title>Guess My Number!</title>
-		<meta charset=”UTF-8”>
-		<meta name=”content” keywords=””>
-		//include link tag for your css, script tags for your .js and jquery files
-	</head>
-	<body>
-		<h1>I’m thinking of a number between 1 and 100…</h1>
-		<h3>Try to guess it!</h3>
-		<form>
-			//create an input element with a specific name here
-		</form><br>
-		//create a button here with the id=”submit”
-		//create a button here with the id=”clear”
-		<div id=”response”></div>
-	</body>
+<body style="text-align:center">
+<div>Guess my number, 1-100! You get five guesses.</div>
+<p>Your guess: <input></p>
+<script src="application.js"></script>
+<script>
+var x = Math.floor(Math.random() * 100 + 1);
+var turns = 5;
+ 
+$('input').change(function() {
+  var guess = $('input').val();
+  if (!guess) return;
+  guess = Number(guess);
+  var hint;
+  if (guess == x) {
+    hint = '<p>YOU WIN!</p>' +
+      '<img src="/images/photo/gold_trophy.jpg">';
+    turns = 0;
+  } else {
+    hint = 'Nope.';
+    if (guess < x) hint += ' Too small!';
+    if (guess > x) hint += ' Too big!';
+    turns = turns - 1;
+  }
+  if (turns == 0) {
+    hint += '<div>The secret number was ' + x + '.</div>';
+    $('p').hide();
+  } else {
+    hint += ' You have ' + turns + ' guesses left.';
+  }
+  $('div').html(hint);
+  $(this).select();
+});
+
+</script>
+</body>
 </html>
